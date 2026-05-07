@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de Algoritmos de Búsqueda | BFS vs UCS vs DFS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Comparador de Algoritmos de Búsqueda</h1>
+            <p>Compara los resultados de BFS, UCS y DFS Iterativo para encontrar la mejor ruta</p>
+        </header>
+
+        <div class="main-content">
+            <div class="search-section">
+                <div class="input-section">
+                    <div class="input-group">
+                        <label for="origen"> Ciudad de Origen:</label>
+                        <select id="origen" class="city-select">
+                            <option value="">Selecciona una ciudad</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="destino"> Ciudad de Destino:</label>
+                        <select id="destino" class="city-select">
+                            <option value="">Selecciona una ciudad</option>
+                        </select>
+                    </div>
+
+                    <div class="info-message">
+                         Al seleccionar origen y destino, se mostrarán automáticamente los resultados de los 3 algoritmos
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resultados BFS -->
+            <div class="results-section" id="bfsResults" style="display: none;">
+                <div class="result-card bfs-card">
+                    <div class="result-header">
+                        <span class="result-icon"></span>
+                        <span class="result-title">BFS - Búsqueda en Amplitud</span>
+                    </div>
+                    <div class="result-content">
+                        <div class="ruta-info">
+                            <strong> Ruta más corta (menos conexiones):</strong>
+                            <div class="ruta-path" id="bfsRuta"></div>
+                        </div>
+                        <div class="coste-info">
+                            <strong> Número de conexiones:</strong>
+                            <span id="bfsCoste" class="coste-value"></span>
+                        </div>
+                        <div id="bfsMensaje" class="mensaje-info"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resultados UCS -->
+            <div class="results-section" id="ucsResults" style="display: none;">
+                <div class="result-card ucs-card">
+                    <div class="result-header">
+                        <span class="result-icon"></span>
+                        <span class="result-title">UCS - Búsqueda de Coste Uniforme</span>
+                    </div>
+                    <div class="result-content">
+                        <div class="ruta-info">
+                            <strong> Ruta de menor coste:</strong>
+                            <div class="ruta-path" id="ucsRuta"></div>
+                        </div>
+                        <div class="coste-info">
+                            <strong> Coste total:</strong>
+                            <span id="ucsCoste" class="coste-value"></span>
+                        </div>
+                        <div id="ucsMensaje" class="mensaje-info"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resultados DFS -->
+            <div class="results-section" id="dfsResults" style="display: none;">
+                <div class="result-card dfs-card">
+                    <div class="result-header">
+                        <span class="result-icon"></span>
+                        <span class="result-title">DFS Iterativo - Profundidad Iterativa</span>
+                    </div>
+                    <div class="result-content">
+                        <div class="ruta-info">
+                            <strong> Ruta encontrada:</strong>
+                            <div class="ruta-path" id="dfsRuta"></div>
+                        </div>
+                        <div class="coste-info">
+                            <strong> Número de conexiones:</strong>
+                            <span id="dfsCoste" class="coste-value"></span>
+                        </div>
+                        <div id="dfsMensaje" class="mensaje-info"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Errores -->
+            <div class="error-section" id="errorSection" style="display: none;">
+                <div class="error-card">
+                    <span class="error-icon"></span>
+                    <p id="errorMensaje"></p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Comparación de algoritmos: BFS,UCS,DFS </p>
+        </footer>
+    </div>
+
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="spinner"></div>
+        <p>Comparando algoritmos...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
