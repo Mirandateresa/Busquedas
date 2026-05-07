@@ -1,5 +1,8 @@
 // Configurar la URL del backend (cambiar después de desplegar en Render)
-const BACKEND_URL = 'https://tu-app-backend.onrender.com'; // Cambiar por tu URL de Render
+// Cambia esta línea
+const BACKEND_URL = 'https://busquedas-backend.onrender.com';
+
+// Asegúrate que NO tenga barra al final
 
 let ciudadesDisponibles = [];
 
