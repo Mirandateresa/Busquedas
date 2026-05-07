@@ -1,8 +1,8 @@
-from arbol import Nodo
+from backend.arbol import Nodo
 
 class Buscador:
     def __init__(self):
-        # Conexiones BFS - SIN PESOS (Actualizado con todas las conexiones)
+        # Conexiones BFS - SIN PESOS
         self.conexiones_bfs = {
             'JILOYORK': ['CELAYA', 'CDMX', 'QUERÉTARO', 'SINALOA'],
             'SONORA': ['ZACATECAS', 'SINALOA'],
@@ -18,7 +18,7 @@ class Buscador:
             'QUERÉTARO': ['TAMAULIPAS', 'ZACATECAS', 'SINALOA', 'JILOYORK', 'OAXACA', 'CDMX', 'CELAYA', 'AGUASCALIENTES', 'GUANAJUATO', 'MONTERREY']
         }
         
-        # Conexiones UCS - CON PESOS (Actualizado)
+        # Conexiones UCS - CON PESOS
         self.conexiones_ucs = {
             'JILOYORK': {'CDMX': 125, 'QRO': 513, 'SINALOA': 200, 'CELAYA': 150},
             'MORELOS': {'QRO': 425, 'CDMX': 180},
@@ -112,7 +112,6 @@ class Buscador:
         return None
     
     def dfs_prof_iter(self, estado_inicial, solucion):
-        """Búsqueda en profundidad iterativa para vuelos"""
         for limite in range(0, 100):
             visitados = []
             nodo_inicial = Nodo(estado_inicial)
@@ -122,7 +121,6 @@ class Buscador:
         return None
     
     def buscar_dfs_rec(self, nodo, solucion, visitados, limite):
-        """Búsqueda DFS recursiva con límite"""
         if limite > 0:
             visitados.append(nodo)
             if nodo.get_datos() == solucion:
